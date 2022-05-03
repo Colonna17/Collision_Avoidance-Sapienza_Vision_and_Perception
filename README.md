@@ -4,5 +4,7 @@ Sapienza University project for Vision and Perception class 2022. Students: Edoa
 Nowadays one of the hottest topic in AI area is autonomous driving. It heavily rely on new technologies from computer vision to achieve results that otherwise would not make possible to use self-driving cars. However, many improvements are still needed in this field. Our project aims to develop a method for 2D/3D object detection in autonomous driving during adverse weather conditions. We'll start by comparing our results with actual benchmarks by using pre-trained models. Then, by using outputs from the first part of the work, we'll focus on estimating object orientation and velocity in order to generate an original collision avoidance method, in line with current literature on the subject.
 # Dataset
 We'll try to obtain a model having similar performance with respect to the following dataset:
-		-DENSE (https://www.uni-ulm.de/en/in/driveu/projects/dense-datasets#c8116699), a dataset robust to "all weather conditions"; it has 100k Objects labelled with accurate 2D and 3D bounding boxes
-		-CCD (Car Crash Dataset)(https://github.com/Cogito2012/CarCrashDataset) given its specialisation in traffic accident scenes; has more than 1500 accident videos with labels and accident reasons descriptions
+
+-DENSE (https://www.uni-ulm.de/en/in/driveu/projects/dense-datasets#c8116699), a dataset robust to "all weather conditions"; it has 100k Objects labelled with accurate 2D and 3D bounding boxes
+
+-CCD (Car Crash Dataset)(https://github.com/Cogito2012/CarCrashDataset) given its specialisation in traffic accident scenes; has more than 1500 accident videos with labels and accident reasons descriptions
