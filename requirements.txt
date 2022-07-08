@@ -1,0 +1,7 @@
+torch==1.9.0
+tqdm
+torchpack
+mmcv==1.4.8
+mmdet==2.24.0
+nuscenes-devkit
+openmim

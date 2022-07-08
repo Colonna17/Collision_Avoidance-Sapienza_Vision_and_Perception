@@ -8,3 +8,15 @@ We'll try to obtain a model having similar performance with respect to the follo
 -DENSE (https://www.uni-ulm.de/en/in/driveu/projects/dense-datasets#c8116699), a dataset robust to "all weather conditions"; it has 100k Objects labelled with accurate 2D and 3D bounding boxes
 
 -CCD (Car Crash Dataset)(https://github.com/Cogito2012/CarCrashDataset) given its specialisation in traffic accident scenes; has more than 1500 accident videos with labels and accident reasons descriptions
+
+# Environment setup
+
+Only the first time:
+'''bash
+./setup.sh
+'''
+
+
+'''bash
+conda activate vision
+'''
