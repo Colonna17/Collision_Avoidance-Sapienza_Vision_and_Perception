@@ -12,11 +12,11 @@ We'll try to obtain a model having similar performance with respect to the follo
 # Environment setup
 
 Only the first time:
-'''bash
+```bash
 ./setup.sh
-'''
+```
 
-
-'''bash
+E poi:
+```bash
 conda activate vision
-'''
+```
