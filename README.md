@@ -11,12 +11,18 @@ We'll try to obtain a model having similar performance with respect to the follo
 
 # Environment setup
 
-Only the first time:
+From the root, run the following command only the first time:
 ```bash
 ./setup.sh
 ```
+It will create a conda environment called **vision**.
 
-E poi:
+# Test
+Activate the environment:
 ```bash
 conda activate vision
+```
+Then run our amazing test and check if everything works:
+```python
+python3 amazingTest.py
 ```
