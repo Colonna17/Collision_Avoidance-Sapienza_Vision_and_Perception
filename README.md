@@ -21,9 +21,9 @@ The project is divided in three main steps:
 - Train many models with different hyperparameters and compare the obtained performance
 - Download the weights corresponding to the best model obtained
 
-# Tracking
+## Tracking
 
-# Car crash prevision
+## Car crash prevision
 
 # How to run the code (for dummies)
 
