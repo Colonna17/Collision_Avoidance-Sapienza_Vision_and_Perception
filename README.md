@@ -12,17 +12,20 @@ We'll try to obtain a model having similar performance with respect to the follo
 # Project
 The project is divided in three main steps:
   ## Yolo custom training
-  we assemble a dataset and train a custom YOLOv5 model to recognize the objects in our dataset. To do so we will take the following steps:
-- Gather a dataset of images and label our dataset
+  We assemble a dataset and train a custom YOLOv5 model to recognize the objects in our dataset. To do so we will take the following steps:
+- Gather a dataset of images and label our dataset (using Roboflow)
 - Export our dataset to YOLOv5
 - Train YOLOv5 to recognize the objects in our dataset
-- Evaluate our YOLOv5 model's performance
+- Evaluate our YOLOv5 model's performance 
 - Run test inference to view our model at work
+- Train many models with different hyperparameters and compare the obtained performance
+- Download the weights corresponding to the best model obtained
 
-# tracking
+# Tracking
 
 # Car crash prevision
 
+# How to run the code (for dummies)
 
 
 
