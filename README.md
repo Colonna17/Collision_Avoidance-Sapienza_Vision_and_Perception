@@ -9,23 +9,21 @@ We'll try to obtain a model having similar performance with respect to the follo
 
 -CCD (Car Crash Dataset)(https://github.com/Cogito2012/CarCrashDataset) given its specialisation in traffic accident scenes; has more than 1500 accident videos with labels and accident reasons descriptions
 
-# Environment setup
+# Project
+The project is divided in three main steps:
+  ## Yolo custom training
+  we assemble a dataset and train a custom YOLOv5 model to recognize the objects in our dataset. To do so we will take the following steps:
+- Gather a dataset of images and label our dataset
+- Export our dataset to YOLOv5
+- Train YOLOv5 to recognize the objects in our dataset
+- Evaluate our YOLOv5 model's performance
+- Run test inference to view our model at work
 
-Run the following command only the first time:
-```bash
-./setup.sh
-```
-It will install all the requirements needed by our code and by all submodules.
-<!-- It will create a conda environment called **vision**. -->
+# tracking
 
-# Test
-<!-- Activate the environment:
-```bash
-conda activate vision
-``` -->
-You can run our amazing test and check if everything works:
-```python
-python3 amazingTest.py
-```
+# Car crash prevision
+
+
+
 
 It is also available a full tutorial here: <b> [bottone con il notebook da creare] </b>
