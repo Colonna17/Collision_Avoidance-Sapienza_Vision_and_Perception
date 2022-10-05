@@ -20,7 +20,7 @@ The project is divided in three main steps:
 - Run test inference to view our model at work
 - Train many models with different hyperparameters and compare the obtained performance
 - Download the weights corresponding to the best model obtained
-![Open In Colab](https://colab.research.google.com/drive/1BqAma0E9KdxTgOLPOhJ-2C7YkzzAeIHc)
+[![Open In Colab](https://colab.research.google.com/drive/1BqAma0E9KdxTgOLPOhJ-2C7YkzzAeIHc)
 ## Tracking
 
 ## Car crash prevision
