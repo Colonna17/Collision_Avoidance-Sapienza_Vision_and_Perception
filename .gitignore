@@ -1,1 +1,5 @@
-*.pt
+
+*yolov5[n,s,m,l,x].pt
+*__pycache__*
+*.ipynb_checkpoints/
+.vscode
