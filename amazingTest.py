@@ -277,7 +277,9 @@ def parse_opt():
     parser.add_argument('--yolo-model-name', type=str, default='yolov5m', help='Official yolov5 model weights: yolov5n, yolov5s, yolov5m, yolov5l, yolov5x. \nIgnored if not --yolo-torchhub')
     
     parser.add_argument('--source', type=str, default='data/videos/CCD/000017.mp4', help='file/dir/URL/glob, 0 for webcam')
-    parser.add_argument('--show-vid', action='store_true', help='shows the result')
+    parser.add_argument('--show-vid', action='store_true', help='display tracking video results')
+    parser.add_argument('--save-vid', action='store_true', help='save video tracking results')
+    parser.add_argument('--save-txt', action='store_true', help='save results to *.txt')
     opt = parser.parse_args()
     return opt
 
