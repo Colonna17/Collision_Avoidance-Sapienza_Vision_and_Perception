@@ -76,6 +76,7 @@ def run(
         exp_name = 'exp', # experiment name
         save_vid = False,
         save_txt = False,
+        visualize = False,
         
         ):
     source = str(source)
@@ -100,6 +101,7 @@ def run(
         yolov5_model = DetectMultiBackend(yolo_weights, device=device, dnn=False, data=None, fp16=False)
     yolov5_model.eval()
     stride, names, pt = yolov5_model.stride, yolov5_model.names, yolov5_model.pt
+
     # Dataloader
     if stream: # webcam, txt file or url of a stream
         show_vid = check_imshow() # Check if environment supports image displays
@@ -150,7 +152,12 @@ def run(
             im = im[None]  # expand for batch dim
         # TODO t2 = time_sync() # for SPEED evaluation
         # TODO dt[0] += t2 - t1 # dt[0] = total amount of time spent on loading frames
-        pred = yolov5_model(im) # YOLOv5 model in validation model, output = (inference_out, loss_out)
+        
+        # Inference
+        # TODO add the option visualize = True to receive also the extracted features
+        visualize = increment_path(save_dir / Path(path[0]).stem, mkdir=True) if visualize else False
+        pred = yolov5_model(im, visualize = visualize) # YOLOv5 model in validation model, output = (inference_out, loss_out)
+        
         # TODO t3 = time_sync() # for SPEED evaluation
         # TODO dt[1] += t3 - t2 # dt[1] = total amount of time spent on object detection (YOLOv5)
         
@@ -276,6 +283,7 @@ def parse_opt():
     # TODO: do not set the default if not yolo-tprchhub
     parser.add_argument('--yolo-model-name', type=str, default='yolov5m', help='Official yolov5 model weights: yolov5n, yolov5s, yolov5m, yolov5l, yolov5x. \nIgnored if not --yolo-torchhub')
     
+    parser.add_argument('--visualize', action='store_true', help='visualize features')
     parser.add_argument('--source', type=str, default='data/videos/CCD/000017.mp4', help='file/dir/URL/glob, 0 for webcam')
     parser.add_argument('--show-vid', action='store_true', help='display tracking video results')
     parser.add_argument('--save-vid', action='store_true', help='save video tracking results')
