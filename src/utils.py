@@ -25,7 +25,7 @@ def parse_opt():
     parser.add_argument('--save-vid', action='store_true', help='save video tracking results')
     parser.add_argument('--save-txt', action='store_true', help='save results to *.txt')
     parser.add_argument('--img-height', type=int, default=720, help='loaded images height')
-    parser.add_argument('--img-width', type=int, default=1240, help='loaded images width')
+    parser.add_argument('--img-width', type=int, default=1280, help='loaded images width')
 
     # Yolo options
     parser.add_argument('--yolo-weights', type=Path, default='weights/yolov5l_finetuned_best_12.pt', help='model.pt path OR the torchhub name model of ...')

@@ -46,16 +46,14 @@ def run(device, options, yolo, tracker, classificator):
         
         yolo_detections = yolo.detect(curr_frame_scaled)
         tracking_output = tracker.track(curr_frame, prev_frame, yolo_detections, curr_frame_scaled.shape[2:])
-        print(type(yolo_detections), yolo_detections.shape, yolo_detections)
-        print(type(tracking_output), tracking_output.shape, tracking_output)
+        # print(type(yolo_detections), yolo_detections.shape, yolo_detections)
+        # print(type(tracking_output), tracking_output.shape, tracking_output)
         
-        # curr_frame_tensor = 
-        # if(frame_idx > 0): collision, h = classificator(curr_frame, prev_frame, tracking_output, h)
-        # if(frame_idx > 0): print(collision)
+        if(frame_idx > 0): 
+            collision, h = classificator(curr_frame, prev_frame, tracking_output, h)
+            print(collision)
 
         prev_frame = curr_frame
-        if frame_idx == 3: return 'Ok'
-
 
 def main(options):
     print(options)
