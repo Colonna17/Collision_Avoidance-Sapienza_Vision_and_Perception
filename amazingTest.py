@@ -41,8 +41,7 @@ def run(device, options, yolo, tracker, classifier):
     for frame_idx, (path, img_scaled, img, vid_cap, s) in enumerate(dataset):
         print('### ', str(frame_idx), ' ###')
         curr_frame = img.copy()
-        # curr_frame_scaled = custom_from_numpy(img_scaled, device).unsqueeze(0)
-        curr_frame_scaled = torch.from_numpy(img_scaled).to(device, dtype=torch.float32).unsqueeze(0)
+        curr_frame_scaled = custom_from_numpy(img_scaled, device).unsqueeze(0)
         
         yolo_detections = yolo.detect(curr_frame_scaled)
         tracking_output = tracker.track(curr_frame, prev_frame, yolo_detections, curr_frame_scaled.shape[2:])
@@ -62,7 +61,7 @@ def run(device, options, yolo, tracker, classifier):
 def main(options):
     print(options)
 
-    device = torch.device('cpu') # torch.device( 'cuda' if torch.cuda.is_available() else 'cpu' )
+    device = torch.device( 'cuda' if torch.cuda.is_available() else 'cpu' )
     print('Device: ', str(device), '\n')
 
     yolo, tracker, classifier = build(device, options)

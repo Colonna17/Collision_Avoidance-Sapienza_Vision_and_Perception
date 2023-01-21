@@ -47,3 +47,23 @@ def parse_opt():
 
     opt = parser.parse_args()
     return vars(opt)
+
+DEFAULT_OPTIONS = {'source': 'data/videos/CCD/000017.mp4', 
+                   'show_vid': False, 
+                   'save_vid': False, 
+                   'save_txt': False, 
+                   'img_height': 720, 
+                   'img_width': 1280, 
+                   # Yolo options:
+                   'yolo_weights': Path('weights/yolov5l_finetuned_best_12.pt'), 
+                   'classes': [0, 1, 2, 3, 5, 7, 9, 11], 'yolo_torchhub': False, 
+                   'yolo_model_name': 'yolov5m', 
+                   'conf_thres': 0.25, 
+                   'max_det': 50, 
+                   'yolo_img_height': 640, 
+                   'yolo_img_width': 640, 
+                   # Tracker options:
+                   'strong_sort_weights': Path('weights/osnet_x0_25_msmt17.pt'), 
+                   # Classifier options:
+                   'lstm_hidden_dim': 32
+                   }
