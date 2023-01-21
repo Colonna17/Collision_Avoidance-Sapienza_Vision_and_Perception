@@ -30,7 +30,7 @@ from src.build import build
 
 
 @torch.no_grad()
-def run(device, options, yolo, tracker, classificator):
+def run(device, options, yolo, tracker, classifier):
     source = str(options['source'])
 
     img_size = (options['yolo_img_height'], options['yolo_img_width'])
@@ -40,9 +40,9 @@ def run(device, options, yolo, tracker, classificator):
     h = None
     for frame_idx, (path, img_scaled, img, vid_cap, s) in enumerate(dataset):
         print('### ', str(frame_idx), ' ###')
-        curr_frame = img
-        curr_frame_scaled = custom_from_numpy(img_scaled, device).unsqueeze(0)
-        # curr_frame_scaled = torch.from_numpy(img_scaled).to(device, dtype=torch.float32).unsqueeze(0)
+        curr_frame = img.copy()
+        # curr_frame_scaled = custom_from_numpy(img_scaled, device).unsqueeze(0)
+        curr_frame_scaled = torch.from_numpy(img_scaled).to(device, dtype=torch.float32).unsqueeze(0)
         
         yolo_detections = yolo.detect(curr_frame_scaled)
         tracking_output = tracker.track(curr_frame, prev_frame, yolo_detections, curr_frame_scaled.shape[2:])
@@ -50,23 +50,27 @@ def run(device, options, yolo, tracker, classificator):
         # print(type(tracking_output), tracking_output.shape, tracking_output)
         
         if(frame_idx > 0): 
-            collision, h = classificator(curr_frame, prev_frame, tracking_output, h)
+            collision, h = classifier(curr_frame, prev_frame, tracking_output, h)
             print(collision)
 
+        # ToDo: Display output
+        
         prev_frame = curr_frame
+    return('Done')
+
 
 def main(options):
     print(options)
 
-    device = torch.device( 'cuda' if torch.cuda.is_available() else 'cpu' )
+    device = torch.device('cpu') # torch.device( 'cuda' if torch.cuda.is_available() else 'cpu' )
     print('Device: ', str(device), '\n')
 
-    yolo, tracker, classificator = build(device, options)
+    yolo, tracker, classifier = build(device, options)
     print(type(yolo))
     print(type(tracker))
-    print(type(classificator))
+    print(type(classifier))
     
-    out = run(device, options, yolo, tracker, classificator)
+    out = run(device, options, yolo, tracker, classifier)
     print(out)
 
 

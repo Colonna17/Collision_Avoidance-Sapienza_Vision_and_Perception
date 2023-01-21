@@ -1,6 +1,6 @@
 from src.yolo import Yolo
 from src.tracker import Tracker
-from src.classificator import Classificator
+from src.classifier import Classifier
 
 def build(device, options):
     
@@ -8,6 +8,6 @@ def build(device, options):
 
     tracker = Tracker(device, options)
 
-    classificator = Classificator(device, options)
+    classifier = Classifier(device, options)
 
-    return (yolo, tracker, classificator)
+    return (yolo, tracker, classifier)

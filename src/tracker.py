@@ -46,7 +46,11 @@ class Tracker():
         xywhs = xyxy2xywh(detections[:, 0:4]) # Convert nx4 boxes from [x1, y1, x2, y2] to [x, y, w, h] where xy1=top-left, xy2=bottom-right
         confs = detections[:, 4]
         clss = detections[:, 5]
-        outputs = self.strong_sort.update(xywhs.cpu(), confs.cpu(), clss.cpu(), curr_frame)
+        
+        try: # ToDO: Fast and weak solution. Find a final solution for this problem
+            outputs = self.strong_sort.update(xywhs.cpu(), confs.cpu(), clss.cpu(), curr_frame)
+        except:
+            outputs = []
 
         if(len(outputs) == 0):
             # return torch.empty(0, device=self.device, dtype=torch.float32)

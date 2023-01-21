@@ -34,15 +34,15 @@ def parse_opt():
     parser.add_argument('--yolo-torchhub', action='store_true', help='Specify if you want to download the yolo weights from PyTorchHub. \nOtherwise remember to specify the local path of where to find the weights you want to use (see the option --yolo-weights)')
     parser.add_argument('--yolo-model-name', type=str, default='yolov5m', help='Official yolov5 model weights: yolov5n, yolov5s, yolov5m, yolov5l, yolov5x. \nIgnored if not --yolo-torchhub')
     parser.add_argument('--conf-thres', type=float, default=0.25, help='Yolo confidence threshold')
-    parser.add_argument('--max-det', type=int, default=100, help='Maximum number of detected/tracked objects')
+    parser.add_argument('--max-det', type=int, default=50, help='Maximum number of detected/tracked objects')
     parser.add_argument('--yolo-img-height', type=int, default=640, help='loaded images height')
     parser.add_argument('--yolo-img-width', type=int, default=640, help='loaded images width')
 
     # Tracker options
     parser.add_argument('--strong-sort-weights', type=Path, default='weights/osnet_x0_25_msmt17.pt', help='Model weights for the tracker')
 
-    # Classificator options
-    parser.add_argument('--lstm-hidden-dim', type=int, default=32, help='Hidden layer dimension of the LSTM inside the collision classificator')
+    # Classifier options
+    parser.add_argument('--lstm-hidden-dim', type=int, default=32, help='Hidden layer dimension of the LSTM inside the collision classifier')
     
 
     opt = parser.parse_args()
