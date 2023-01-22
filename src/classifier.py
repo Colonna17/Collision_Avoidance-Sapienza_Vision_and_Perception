@@ -18,12 +18,11 @@ class Classifier(nn.Module):
         self.lstm = torch.nn.LSTM(lstm_input_size, parameters['lstm_hidden_dim'], device=device)
         self.relu = torch.nn.ReLU()
 
-        self.linear_classifier = torch.nn.Linear(parameters['lstm_hidden_dim'], 1)
+        self.linear_classifier = torch.nn.Linear(parameters['lstm_hidden_dim'], 1, device=device)
         self.sigmoid = nn.Sigmoid()
     
-
+    
     def forward(self, curr_frame, prev_frame, detections, h=None):
-        # if(some_condition): input = torch.from_numpy(input).to(device=device, dtype=torch.float32)
         curr_frame = torch.permute(custom_from_numpy(curr_frame, self.device), (2,0,1)).unsqueeze(0)
         prev_frame = torch.permute(custom_from_numpy(prev_frame, self.device), (2,0,1)).unsqueeze(0)
         detections = custom_from_numpy(detections, self.device)
@@ -32,7 +31,7 @@ class Classifier(nn.Module):
         curr_frame = torch.flatten(curr_frame)
         flow = torch.flatten(flow)
         padding_size = (self.max_det - len(detections)) * 7
-        padding = torch.ones(padding_size) * -1
+        padding = torch.ones(padding_size, device=self.device) * -1
         detections = (torch.flatten(detections))
         
         input = torch.cat((curr_frame, flow, detections, padding)).unsqueeze(0)
