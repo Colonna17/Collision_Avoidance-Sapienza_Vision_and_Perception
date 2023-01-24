@@ -57,11 +57,11 @@ DEFAULT_OPTIONS = {'source': 'data/videos/CCD/000017.mp4',
                    'yolo_weights': Path('weights/yolov5s.pt'), 
                    'classes': [0, 1, 2, 3, 5, 7, 9, 11], 
                    'conf_thres': 0.25, 
-                   'max_det': 50, 
+                   'max_det': 150, 
                    'yolo_img_height': 640, 
                    'yolo_img_width': 640, 
                    # Tracker options:
                    'strong_sort_weights': Path('weights/osnet_x0_25_msmt17.pt'), 
                    # Classifier options:
-                   'lstm_hidden_dim': 16
+                   'lstm_hidden_dim': 8
                    }
