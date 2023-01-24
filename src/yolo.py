@@ -9,10 +9,7 @@ from external.yolov5.utils.general import non_max_suppression
 class Yolo():
     def __init__(self, device, options):
         self.device = device
-        if options['yolo_torchhub']:
-            self.model = torch.hub.load('ultralytics/yolov5', options['yolo_model_name'], pretrained=True).model
-        else:
-            self.model = DetectMultiBackend(options['yolo_weights'], device=device, dnn=False, data=None, fp16=False)
+        self.model = DetectMultiBackend(options['yolo_weights'], device=device, dnn=False, data=None, fp16=False)
         # self.stride, self.names, self.pt= self.model.stride, self.model.names, self.model.pt
         self.conf_thres = options['conf_thres']
         self.classes = options['classes']

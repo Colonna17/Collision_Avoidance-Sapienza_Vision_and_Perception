@@ -29,8 +29,6 @@ def parse_opt():
     parser.add_argument('--yolo-weights', type=Path, default=DEFAULT_OPTIONS['yolo_weights'], help='model.pt path OR the torchhub name model of ...')
     # parser.add_argument('--visualize', action='store_true', help='visualize features')
     parser.add_argument('--classes', nargs='+', type=int, help='filter by class: --classes 0, or --classes 0 2 3', default=DEFAULT_OPTIONS['classes'])
-    parser.add_argument('--yolo-torchhub', action='store_true', help='Specify if you want to download the yolo weights from PyTorchHub. \nOtherwise remember to specify the local path of where to find the weights you want to use (see the option --yolo-weights)')
-    parser.add_argument('--yolo-model-name', type=str, default=DEFAULT_OPTIONS['yolo_model_name'], help='Official yolov5 model weights: yolov5n, yolov5s, yolov5m, yolov5l, yolov5x. \nIgnored if not --yolo-torchhub')
     parser.add_argument('--conf-thres', type=float, default=DEFAULT_OPTIONS['conf_thres'], help='Yolo confidence threshold')
     parser.add_argument('--max-det', type=int, default=DEFAULT_OPTIONS['max_det'], help='Maximum number of detected/tracked objects')
     parser.add_argument('--yolo-img-height', type=int, default=DEFAULT_OPTIONS['yolo_img_height'], help='loaded images height')
@@ -56,10 +54,8 @@ DEFAULT_OPTIONS = {'source': 'data/videos/CCD/000017.mp4',
                    'img_height': 720, 
                    'img_width': 1280, 
                    # Yolo options:
-                   'yolo_weights': Path('weights/yolov5l_finetuned_best_12.pt'), 
+                   'yolo_weights': Path('weights/yolov5s.pt'), 
                    'classes': [0, 1, 2, 3, 5, 7, 9, 11], 
-                   'yolo_torchhub': False, 
-                   'yolo_model_name': 'yolov5m', # or yolov5n - yolov5x6, custom
                    'conf_thres': 0.25, 
                    'max_det': 50, 
                    'yolo_img_height': 640, 
