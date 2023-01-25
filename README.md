@@ -33,4 +33,4 @@ The second step to obtain a classifier is the use of Strongsort in order to keep
 
 The final step is the connection of all the models explained before; all goes directly into the classifier that create an output between 0 and 1 that represent the probability of an accident.
 # Results and Future works
-The results of our models are not so satysfying. The problem was the use of a small dataset and the bad weather conditions of the images. Anyway this project could be a very good start for future project due to the potential of all the models.
+The results of our models are not so satysfying w.r.t S.O.T.A similar models. The reason of that  is in the defects in our small custom dataset and the bad weather conditions of the images that, whitout the possibility to leverage other sensor besides RGB cameras, where a too strong drawback for our model. Anyway the project could be a very good start for future developements due to the potential of all the models used.
