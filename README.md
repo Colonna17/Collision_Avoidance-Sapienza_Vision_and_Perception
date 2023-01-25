@@ -12,6 +12,7 @@ We'll try to obtain a model having similar performance with respect to the follo
 # Project
 The project is composed by many models that are combined on the final Classifier that defines the probability of an accident.
 For the project are used images in bad weather conditions to specialize the system. 
+The models used are a customize model of Yolo trained with images of our dataset. The strongSort that let the bounding boxes being tracked all time for every frame. Finally the optical flow and the Classifier that combine all the results of the models and show a single result.
   ## Yolo custom training
   We assemble a dataset and train a custom YOLOv5 model to recognize the objects in our dataset. To do so we will take the following steps:
 - Gather a dataset of images and label our dataset (using Roboflow)
@@ -25,11 +26,11 @@ For the project are used images in bad weather conditions to specialize the syst
 ## Tracking
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Colonna17/Collision_Avoidance-Sapienza_Vision_and_Perception/blob/main/notebooks/tracking.ipynb)
 The second step to obtain a classifier is the use of Strongsort in order to keep track of the bounding boxes and mantain the indexes of them. This improve significally the performance of the model in respect to other computer vision models.
-DeepSORT is a computer vision tracking algorithm for tracking objects while assigning an ID to each object. 
 
 
-## Car crash prevision
+## Car crash prevision ( Optical Flow and Classifier)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Colonna17/Collision_Avoidance-Sapienza_Vision_and_Perception/blob/main/notebooks/CCD_Classification.ipynb)
 
-The final step is the connection of all the models explained before, all goes directly into the classifier that create an output between 0 and 1 that represent the probability of an accident.
-
+The final step is the connection of all the models explained before; all goes directly into the classifier that create an output between 0 and 1 that represent the probability of an accident.
+# Results and Future works
+The results of our models are not so satysfying. The problem was the use of a small dataset and the bad weather conditions of the images. Anyway this project could be a very good start for future project due to the potential of all the models.
