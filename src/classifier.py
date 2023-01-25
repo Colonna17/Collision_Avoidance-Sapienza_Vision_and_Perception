@@ -13,8 +13,7 @@ class Classifier(nn.Module):
 
         self.opticalFlowEstimator = OpticalFlowEstimator(device)
 
-        lstm_input_size = parameters['img_height'] * parameters['img_width']*5 + self.max_det*7 #  Frame+Flow + Tracking
-        # print(lstm_input_size, parameters['img_width'], int((parameters['img_width'])/16)*9)
+        lstm_input_size = parameters['img_height'] * parameters['img_width']*5 + self.max_det*7 # Frame+Flow + Tracking
         self.lstm = torch.nn.LSTM(lstm_input_size, parameters['lstm_hidden_dim'], device=device)
         self.relu = torch.nn.ReLU()
 

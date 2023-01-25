@@ -7,7 +7,6 @@ sys.path.append('external/Yolov5_StrongSORT_OSNet/strong_sort/deep/reid')
 from external.Yolov5_StrongSORT_OSNet.strong_sort.strong_sort import StrongSORT
 
 from external.yolov5.utils.general import scale_coords, xyxy2xywh
-# (LOGGER, Profile, check_img_size, non_max_suppression, check_requirements, cv2, check_imshow, increment_path, strip_optimizer, colorstr, print_args, check_file) 
 
 class params_strongSort():  
     ecc = True               # activate camera motion compensation
@@ -39,7 +38,7 @@ class Tracker():
         self.strong_sort.model.warmup()
 
     def track(self, curr_frame, prev_frame, detections, scaled_img_size):
-        if(self.cfg.ecc):  # Camera motion compensation
+        if(self.cfg.ecc): # Camera motion compensation
             self.strong_sort.tracker.camera_update(prev_frame, curr_frame)
         
         detections[:, :4] = scale_coords(scaled_img_size, detections[:, :4], curr_frame.shape).round() # Rescale boxes from img_size to im0 size
