@@ -52,7 +52,7 @@ DEFAULT_OPTIONS = {'source': 'data/videos/CCD/100096.mp4',
                    'img_height': 720, 
                    'img_width': 1280, 
                    # Yolo options:
-                   'yolo_weights': Path('weights/yolov5s.pt'), 
+                   'yolo_weights': Path('weights/yolov5l_finetuned_best_12.pt'), 
                    'classes': [0, 1, 2, 3, 5, 7, 9, 11], 
                    'conf_thres': 0.25, 
                    'max_det': 150, 
@@ -62,5 +62,5 @@ DEFAULT_OPTIONS = {'source': 'data/videos/CCD/100096.mp4',
                    'strong_sort_weights': Path('weights/osnet_x0_25_msmt17.pt'), 
                    # Classifier options:
                    'lstm_hidden_dim': 8,
-                   'classifier_weights': Path('weights/Crash_Classfier_weights_5.pt')
+                   'classifier_weights': Path('weights/Crash_Classfier_weights.pt')
                    }

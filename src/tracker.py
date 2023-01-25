@@ -48,12 +48,10 @@ class Tracker():
         clss = detections[:, 5]
         
         try: # ToDO: Fast and weak solution. Find a final solution for this problem
-            outputs = self.strong_sort.update(xywhs.cpu(), confs.cpu(), clss.cpu(), curr_frame)
+            outputs = self.strong_sort.update(xywhs.cpu(), confs.cpu(), clss.cpu(), curr_frame.copy())
         except:
             outputs = []
-
+        
         if(len(outputs) == 0):
-            # return torch.empty(0, device=self.device, dtype=torch.float32)
             return numpy.empty(0)
-        # return torch.from_numpy(outputs).to(self.device)
         return outputs
