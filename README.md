@@ -5,7 +5,7 @@ Nowadays one of the hottest topics in the AI area is autonomous driving. It heav
 # Dataset
 We'll try to obtain a model having similar performance with respect to the following dataset:
 
--DENSE ([https://universe.roboflow.com/eddyprojects/v-p-2022/dataset/9]), a dataset created by ourself that contains "all weather conditions"; it has 1000 images with thousands of Objects labelled with accurate 2D bounding boxes using 7 classes 
+-V&P 2022 ([https://universe.roboflow.com/eddyprojects/v-p-2022/dataset/9]), a dataset created by ourself that contains "all weather conditions"; it has 1000 images with thousands of Objects labelled with accurate 2D bounding boxes using 7 classes 
 
 -CCD (Car Crash Dataset)(https://github.com/Cogito2012/CarCrashDataset) given its specialisation in traffic accident scenes; has more than 1500 accident videos with labels and accident reasons descriptions
 
