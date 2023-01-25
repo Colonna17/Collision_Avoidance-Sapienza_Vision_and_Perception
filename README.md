@@ -10,7 +10,8 @@ We'll try to obtain a model having similar performance with respect to the follo
 -CCD (Car Crash Dataset)(https://github.com/Cogito2012/CarCrashDataset) given its specialisation in traffic accident scenes; has more than 1500 accident videos with labels and accident reasons descriptions
 
 # Project
-The project is divided in three main steps:
+The project is composed by many models that are combined on the final Classifier that defines the probability of an accident.
+For the project are used images in bad weather conditions to specialize the system. 
   ## Yolo custom training
   We assemble a dataset and train a custom YOLOv5 model to recognize the objects in our dataset. To do so we will take the following steps:
 - Gather a dataset of images and label our dataset (using Roboflow)
@@ -24,11 +25,7 @@ The project is divided in three main steps:
 ## Tracking
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Colonna17/Collision_Avoidance-Sapienza_Vision_and_Perception/blob/main/notebooks/tracking.ipynb)
 The second step to obtain a classifier is the use of Strongsort in order to keep track of the bounding boxes and mantain the indexes of them. This improve significally the performance of the model in respect to other computer vision models.
-DeepSORT is a computer vision tracking algorithm for tracking objects while assigning an ID to each object. It uses
-•	Detection: 
-•	Estimation: 
-Data association: 
-•	Creation and Deletion of Track Identities:
+DeepSORT is a computer vision tracking algorithm for tracking objects while assigning an ID to each object. 
 
 
 ## Car crash prevision
