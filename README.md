@@ -22,11 +22,17 @@ The project is divided in three main steps:
 - Download the weights corresponding to the best model obtained
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1BqAma0E9KdxTgOLPOhJ-2C7YkzzAeIHc)
 ## Tracking
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Colonna17/Collision_Avoidance-Sapienza_Vision_and_Perception/blob/main/notebooks/tracking.ipynb)
+The second step to obtain a classifier is the use of Strongsort in order to keep track of the bounding boxes and mantain the indexes of them. This improve significally the performance of the model in respect to other computer vision models.
+DeepSORT is a computer vision tracking algorithm for tracking objects while assigning an ID to each object. It uses
+•	Detection: 
+•	Estimation: 
+Data association: 
+•	Creation and Deletion of Track Identities:
+
 
 ## Car crash prevision
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Colonna17/Collision_Avoidance-Sapienza_Vision_and_Perception/blob/main/notebooks/CCD_Classification.ipynb)
 
-# How to run the code (for dummies)
+The final step is the connection of all the models explained before, all goes directly into the classifier that create an output between 0 and 1 that represent the probability of an accident.
 
-
-
-It is also available a full tutorial here: <b> [bottone con il notebook da creare] </b>
