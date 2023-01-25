@@ -11,9 +11,6 @@ def numpy_brg_to_rgb(np_array):
 def custom_from_numpy(np_array, device):
     return torch.from_numpy(np_array).to(device=device, dtype=torch.float32)
 
-def save_or_show(options):
-
-    return True
 
 def parse_opt():
     parser = argparse.ArgumentParser()
@@ -26,7 +23,7 @@ def parse_opt():
     parser.add_argument('--img-width', type=int, default=DEFAULT_OPTIONS['img_width'], help='loaded images width')
 
     # Yolo options
-    parser.add_argument('--yolo-weights', type=Path, default=DEFAULT_OPTIONS['yolo_weights'], help='model.pt path OR the torchhub name model of ...')
+    parser.add_argument('--yolo-weights', type=Path, default=DEFAULT_OPTIONS['yolo_weights'], help='model.pt path of yolov5')
     # parser.add_argument('--visualize', action='store_true', help='visualize features')
     parser.add_argument('--classes', nargs='+', type=int, help='filter by class: --classes 0, or --classes 0 2 3', default=DEFAULT_OPTIONS['classes'])
     parser.add_argument('--conf-thres', type=float, default=DEFAULT_OPTIONS['conf_thres'], help='Yolo confidence threshold')
@@ -39,6 +36,7 @@ def parse_opt():
 
     # Classifier options
     parser.add_argument('--lstm-hidden-dim', type=int, default=DEFAULT_OPTIONS['lstm_hidden_dim'], help='Hidden layer dimension of the LSTM inside the collision classifier')
+    parser.add_argument('--classifier-weights', type=Path, default=DEFAULT_OPTIONS['classifier_weights'], help='path for the model.pt of the clasifier')
     
 
     opt = parser.parse_args()
@@ -47,7 +45,7 @@ def parse_opt():
 # default classes that will be detected and tracked
 # DEFAULT_CLASSES = {0: 'person', 1: 'bicycle', 2: 'car', 3: 'motorcycle', 5: 'bus', 7: 'truck', 9: 'traffic light', 11: 'stop sign'}
 
-DEFAULT_OPTIONS = {'source': 'data/videos/CCD/000017.mp4', 
+DEFAULT_OPTIONS = {'source': 'data/videos/CCD/100096.mp4', 
                    'show_vid': False, 
                    'save_vid': False, 
                    'save_txt': False, 
@@ -63,5 +61,6 @@ DEFAULT_OPTIONS = {'source': 'data/videos/CCD/000017.mp4',
                    # Tracker options:
                    'strong_sort_weights': Path('weights/osnet_x0_25_msmt17.pt'), 
                    # Classifier options:
-                   'lstm_hidden_dim': 8
+                   'lstm_hidden_dim': 8,
+                   'classifier_weights': Path('weights/Crash_Classfier_weights_5.pt')
                    }

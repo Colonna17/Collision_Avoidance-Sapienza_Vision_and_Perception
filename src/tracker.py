@@ -42,7 +42,7 @@ class Tracker():
         if(self.cfg.ecc):  # Camera motion compensation
             self.strong_sort.tracker.camera_update(prev_frame, curr_frame)
         
-        detections[:, :4] = scale_coords(scaled_img_size, detections[:, :4], curr_frame.shape).round()
+        detections[:, :4] = scale_coords(scaled_img_size, detections[:, :4], curr_frame.shape).round() # Rescale boxes from img_size to im0 size
         xywhs = xyxy2xywh(detections[:, 0:4]) # Convert nx4 boxes from [x1, y1, x2, y2] to [x, y, w, h] where xy1=top-left, xy2=bottom-right
         confs = detections[:, 4]
         clss = detections[:, 5]

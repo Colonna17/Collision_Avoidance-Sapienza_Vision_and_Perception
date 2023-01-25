@@ -20,8 +20,6 @@ class OpticalFlowEstimator(nn.Module):
             param.requires_grad = False # For the moment, we don't want to train this model.
 
     def forward(self, prev_frame, curr_frame):
-        # apply transforms?
-        # frames = torch.stack([prev_frame, curr_frame])
         return self.estimator(prev_frame, curr_frame)
 
     @staticmethod

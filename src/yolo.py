@@ -10,7 +10,7 @@ class Yolo():
     def __init__(self, device, options):
         self.device = device
         self.model = DetectMultiBackend(options['yolo_weights'], device=device, dnn=False, data=None, fp16=False)
-        # self.stride, self.names, self.pt= self.model.stride, self.model.names, self.model.pt
+        self.stride, self.names, self.pt= self.model.stride, self.model.names, self.model.pt
         self.conf_thres = options['conf_thres']
         self.classes = options['classes']
         self.max_det = options['max_det']
