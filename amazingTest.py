@@ -40,7 +40,6 @@ def run(device, options, yolo, tracker, classifier):
     curr_frame, prev_frame = None, None
     h = None
     for frame_idx, (path, img_scaled, img, vid_cap, s) in enumerate(dataset):
-        print('### ', str(frame_idx), ' ###')
         curr_frame = img.copy()
         curr_frame_scaled = custom_from_numpy(img_scaled, device).unsqueeze(0)
         yolo_detections = yolo.detect(curr_frame_scaled)
