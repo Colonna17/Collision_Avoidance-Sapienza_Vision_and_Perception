@@ -35,8 +35,10 @@ def run(device, options, yolo, tracker, classifier):
     label_thickness = 3   
     safe_color = (0, 255, 0)    
     collision_color = (255, 0, 0) 
-    video = cv2.VideoWriter('results/final_classification/' + source[source.rindex('/')+1:],cv2.VideoWriter_fourcc(*'mp4v'), 30, (options['img_width'], options['img_height']))
+    output_path = 'results/final_classification/' + source[source.rindex('/')+1:]
+    video = cv2.VideoWriter(output_path, cv2.VideoWriter_fourcc(*'mp4v'), 30, (options['img_width'], options['img_height']))
     
+    print('\nClassification output: ')
     curr_frame, prev_frame = None, None
     h = None
     for frame_idx, (path, img_scaled, img, vid_cap, s) in enumerate(dataset):
@@ -58,6 +60,7 @@ def run(device, options, yolo, tracker, classifier):
         prev_frame = curr_frame
     
     video.release()
+    print('\nVideo saved in: ', output_path)
     
     return('Done')
 
@@ -75,8 +78,6 @@ def main(options):
     print(type(classifier))
     
     out = run(device, options, yolo, tracker, classifier)
-    print(out)
-
 
 if __name__ == "__main__":
     opt = parse_opt()
