@@ -15,28 +15,28 @@ def custom_from_numpy(np_array, device):
 def parse_opt():
     parser = argparse.ArgumentParser()
     # General options
-    parser.add_argument('--source', type=str, default=DEFAULT_OPTIONS['source'], help='file/dir/URL/glob, 0 for webcam')
+    parser.add_argument('--source', type=str, default=DEFAULT_OPTIONS['source'], help='local path to the video to analyze')
     parser.add_argument('--show-vid', action='store_true', help='display tracking video results')
-    parser.add_argument('--save-vid', action='store_true', help='save video tracking results')
-    parser.add_argument('--save-txt', action='store_true', help='save results to *.txt')
-    parser.add_argument('--img-height', type=int, default=DEFAULT_OPTIONS['img_height'], help='loaded images height')
-    parser.add_argument('--img-width', type=int, default=DEFAULT_OPTIONS['img_width'], help='loaded images width')
+    # parser.add_argument('--save-vid', action='store_true', help='save video tracking results')
+    # parser.add_argument('--save-txt', action='store_true', help='save results to *.txt')
+    parser.add_argument('--img-height', type=int, default=DEFAULT_OPTIONS['img_height'], help='loaded frames height')
+    parser.add_argument('--img-width', type=int, default=DEFAULT_OPTIONS['img_width'], help='loaded frames width')
 
     # Yolo options
-    parser.add_argument('--yolo-weights', type=Path, default=DEFAULT_OPTIONS['yolo_weights'], help='model.pt path of yolov5')
+    parser.add_argument('--yolo-weights', type=Path, default=DEFAULT_OPTIONS['yolo_weights'], help='model weights of yolov5')
     # parser.add_argument('--visualize', action='store_true', help='visualize features')
-    parser.add_argument('--classes', nargs='+', type=int, help='filter by class: --classes 0, or --classes 0 2 3', default=DEFAULT_OPTIONS['classes'])
-    parser.add_argument('--conf-thres', type=float, default=DEFAULT_OPTIONS['conf_thres'], help='Yolo confidence threshold')
-    parser.add_argument('--max-det', type=int, default=DEFAULT_OPTIONS['max_det'], help='Maximum number of detected/tracked objects')
-    parser.add_argument('--yolo-img-height', type=int, default=DEFAULT_OPTIONS['yolo_img_height'], help='loaded images height')
-    parser.add_argument('--yolo-img-width', type=int, default=DEFAULT_OPTIONS['yolo_img_width'], help='loaded images width')
+    parser.add_argument('--classes', nargs='+', type=int, help='filter yolo detections by class: --classes 0, or --classes 0 2 3', default=DEFAULT_OPTIONS['classes'])
+    parser.add_argument('--conf-thres', type=float, default=DEFAULT_OPTIONS['conf_thres'], help='yolo confidence threshold')
+    parser.add_argument('--max-det', type=int, default=DEFAULT_OPTIONS['max_det'], help='maximum number of detected/tracked objects')
+    parser.add_argument('--yolo-img-height', type=int, default=DEFAULT_OPTIONS['yolo_img_height'], help='scaled frames height passed to yolo')
+    parser.add_argument('--yolo-img-width', type=int, default=DEFAULT_OPTIONS['yolo_img_width'], help='scaled frames width passed to yolo')
 
     # Tracker options
-    parser.add_argument('--strong-sort-weights', type=Path, default=DEFAULT_OPTIONS['strong_sort_weights'], help='Model weights for the tracker')
+    parser.add_argument('--strong-sort-weights', type=Path, default=DEFAULT_OPTIONS['strong_sort_weights'], help='model weights path of the tracker')
 
     # Classifier options
-    parser.add_argument('--lstm-hidden-dim', type=int, default=DEFAULT_OPTIONS['lstm_hidden_dim'], help='Hidden layer dimension of the LSTM inside the collision classifier')
-    parser.add_argument('--classifier-weights', type=Path, default=DEFAULT_OPTIONS['classifier_weights'], help='path for the model.pt of the clasifier')
+    parser.add_argument('--lstm-hidden-dim', type=int, default=DEFAULT_OPTIONS['lstm_hidden_dim'], help='hidden layer dimension of the LSTM inside the collision classifier')
+    parser.add_argument('--classifier-weights', type=Path, default=DEFAULT_OPTIONS['classifier_weights'], help='model weights path of the clasifier')
     
 
     opt = parser.parse_args()
@@ -47,8 +47,8 @@ def parse_opt():
 
 DEFAULT_OPTIONS = {'source': 'data/videos/CCD/100096.mp4', 
                    'show_vid': False, 
-                   'save_vid': False, 
-                   'save_txt': False, 
+                   #'save_vid': False, 
+                   #'save_txt': False, 
                    'img_height': 720, 
                    'img_width': 1280, 
                    # Yolo options:
