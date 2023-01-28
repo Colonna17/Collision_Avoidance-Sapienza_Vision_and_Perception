@@ -1,4 +1,5 @@
 Sapienza University project for Vision and Perception 2022. <br />
+Students: [Edoardo Colonna](https://github.com/Colonna17), [Lapo Carrieri](https://github.com/lapocarrieri) and [Silverio Manganaro](https://github.com/Silver0x10).
 
 # <div align="center"> Abstract </div>
 Nowadays one of the hottest topics in the AI area is autonomous driving. It heavily relies on new technologies from computer vision to achieve results that otherwise would not make it possible to use self-driving cars. However, many improvements are still needed in this field. Our project aims to develop a method for object detection in adverse weather conditions in autonomous driving . We'll start by comparing our results with actual benchmarks by using pre-trained models. Then, by using outputs from the first part of the work, we will train a model to track the vehicles frame by frame. Finally, we will focus on estimating object direction of motion in order to generate a collision detection method, in line with current literature on the subject.
@@ -69,7 +70,7 @@ The final output is therefore the probability that an accident occurs in the ana
 
 # <div align="center"> Results and Future works </div> 
 
-The results of our models are not so satysfying with respect to S.O.T.A similar models. 
+The results of our models are not so satysfying with respect to S.O.T.A. similar models. 
 
 
 <div align="center"> <img src="results/gifs/final.gif" width="70%"/> </div> 
